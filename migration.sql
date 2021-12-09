@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> 131eabf3bb890b0653a2f4ac2a0a6dc267ea7bc7
 USE mangatrader_db;
 
 DROP TABLE IF EXISTS mangas;
@@ -11,6 +15,10 @@ CREATE TABLE users (
     PRIMARY KEY (id)
 );
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 131eabf3bb890b0653a2f4ac2a0a6dc267ea7bc7
 CREATE TABLE mangas (
     title VARCHAR(240) NOT NULL,
     author VARCHAR(255) NOT NULL,

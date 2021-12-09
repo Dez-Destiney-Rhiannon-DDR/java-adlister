@@ -1,6 +1,10 @@
 package com.codeup.adlister.dao;
 
 import com.codeup.adlister.Config;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 131eabf3bb890b0653a2f4ac2a0a6dc267ea7bc7
 import com.codeup.adlister.models.User;
 import com.mysql.cj.jdbc.Driver;
 
@@ -8,6 +12,10 @@ import java.sql.*;
 
 public class MySQLUsersDao implements Users {
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 131eabf3bb890b0653a2f4ac2a0a6dc267ea7bc7
     private Connection connection = null;
 
 
@@ -18,6 +26,10 @@ public class MySQLUsersDao implements Users {
                     config.getUrl(),
                     config.getUsername(),
                     config.getPassword()
+<<<<<<< HEAD
+=======
+
+>>>>>>> 131eabf3bb890b0653a2f4ac2a0a6dc267ea7bc7
             );
         } catch (SQLException e) {
             throw new RuntimeException("Error connecting to the database!", e);
@@ -75,4 +87,8 @@ public class MySQLUsersDao implements Users {
         }
         return null;
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 131eabf3bb890b0653a2f4ac2a0a6dc267ea7bc7
 }
