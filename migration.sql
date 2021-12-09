@@ -1,3 +1,4 @@
+
 USE mangatrader_db;
 
 DROP TABLE IF EXISTS mangas;
@@ -10,6 +11,7 @@ CREATE TABLE users (
     password VARCHAR(255) NOT NULL,
     PRIMARY KEY (id)
 );
+
 
 CREATE TABLE mangas (
     title VARCHAR(240) NOT NULL,

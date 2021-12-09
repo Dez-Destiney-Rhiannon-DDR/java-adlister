@@ -13,6 +13,7 @@ import java.io.IOException;
 @WebServlet(name = "controllers.RegisterServlet", urlPatterns = "/register")
 public class RegisterServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         // TODO: show the registration form
         request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request,response); //Linking things up
     }
@@ -32,6 +33,7 @@ public class RegisterServlet extends HttpServlet {
         DaoFactory.getUsersDao().insert(user); //Inserting new user object into db
 
         response.sendRedirect("/login"); //Redirect to login once done creating their user
+
 
     }
 }

@@ -1,6 +1,8 @@
 package com.codeup.adlister.dao;
 
+
 import com.codeup.adlister.Config;
+
 import com.codeup.adlister.models.Ad;
 import com.mysql.cj.jdbc.Driver;
 
@@ -19,7 +21,9 @@ public class MySQLAdsDao implements Ads {
             DriverManager.registerDriver(new Driver());
             connection = DriverManager.getConnection(
                 config.getUrl(),
+
                 config.getUsername(),
+
                 config.getPassword()
             );
         } catch (SQLException e) {
@@ -28,6 +32,7 @@ public class MySQLAdsDao implements Ads {
     }
 
     @Override
+
     public List<Ad> all() { //retrieving all ads, refactored to use prepared statements
         Statement stmt = null;
         ResultSet resultSet = null;
@@ -36,27 +41,33 @@ public class MySQLAdsDao implements Ads {
             PreparedStatement statement = connection.prepareStatement(myQuery);
             resultSet = statement.executeQuery();
             return createAdsFromResults(resultSet);
+
         } catch (SQLException e) {
             throw new RuntimeException("Error retrieving all ads.", e);
         }
     }
 
     @Override
+
     public Long insert(Ad ad) { //Inserting ad into db, refactored to use prepared statements
         try {
             String sql = "INSERT INTO mangas(user_id, title, description) VALUES (?, ?, ?)";
             PreparedStatement stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+
             stmt.setLong(1, ad.getUserId());
             stmt.setString(2, ad.getTitle());
             stmt.setString(3, ad.getDescription());
             stmt.executeUpdate();
+
             ResultSet generatedIdResultSet = stmt.getGeneratedKeys();
             generatedIdResultSet.next(); /* allows user input to actually be POSTED to ads */
             return generatedIdResultSet.getLong(1);
+          
         } catch (SQLException e) {
             throw new RuntimeException("Error creating a new ad.", e);
         }
     }
+
 
     private String createInsertQuery(Ad ad) {
         return "INSERT INTO ads(user_id, title, description) VALUES "
@@ -64,6 +75,7 @@ public class MySQLAdsDao implements Ads {
             + "'" + ad.getTitle() +"', "
             + "'" + ad.getDescription() + "')";
     }
+
 
     private Ad extractAd(ResultSet rs) throws SQLException {
         return new Ad(

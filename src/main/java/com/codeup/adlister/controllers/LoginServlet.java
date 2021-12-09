@@ -3,6 +3,7 @@ package com.codeup.adlister.controllers;
 import com.codeup.adlister.dao.DaoFactory;
 import com.codeup.adlister.models.User;
 
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,6 +22,7 @@ public class LoginServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+
         String username = request.getParameter("username"); //variable username
         String password = request.getParameter("password");
 
@@ -32,9 +34,11 @@ public class LoginServlet extends HttpServlet {
 
         // TODO: make sure we find a user with that username
         if(user == null){
+
             response.sendRedirect("/login");
             return;
         }
+
 
         // TODO: check the submitted password against what you have in your database
         boolean validAttempt = password.equals(user.getPassword());
@@ -42,6 +46,7 @@ public class LoginServlet extends HttpServlet {
         if (validAttempt) {
             // TODO: store the logged in user object in the session, instead of just the username
             request.getSession().setAttribute("user", user); //setting attribute to User user, which goes into the factory to see if you're in the db
+
             response.sendRedirect("/profile");
         } else {
             response.sendRedirect("/login");
