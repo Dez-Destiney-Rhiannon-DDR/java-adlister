@@ -3,7 +3,10 @@ package com.codeup.adlister.controllers;
 import com.codeup.adlister.dao.DaoFactory;
 import com.codeup.adlister.models.User;
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> 131eabf3bb890b0653a2f4ac2a0a6dc267ea7bc7
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,7 +25,10 @@ public class LoginServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+<<<<<<< HEAD
+=======
 
+>>>>>>> 131eabf3bb890b0653a2f4ac2a0a6dc267ea7bc7
         String username = request.getParameter("username"); //variable username
         String password = request.getParameter("password");
 
@@ -34,19 +40,28 @@ public class LoginServlet extends HttpServlet {
 
         // TODO: make sure we find a user with that username
         if(user == null){
+<<<<<<< HEAD
+=======
 
+>>>>>>> 131eabf3bb890b0653a2f4ac2a0a6dc267ea7bc7
             response.sendRedirect("/login");
             return;
         }
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> 131eabf3bb890b0653a2f4ac2a0a6dc267ea7bc7
         // TODO: check the submitted password against what you have in your database
         boolean validAttempt = password.equals(user.getPassword());
 
         if (validAttempt) {
             // TODO: store the logged in user object in the session, instead of just the username
             request.getSession().setAttribute("user", user); //setting attribute to User user, which goes into the factory to see if you're in the db
+<<<<<<< HEAD
+=======
 
+>>>>>>> 131eabf3bb890b0653a2f4ac2a0a6dc267ea7bc7
             response.sendRedirect("/profile");
         } else {
             response.sendRedirect("/login");
